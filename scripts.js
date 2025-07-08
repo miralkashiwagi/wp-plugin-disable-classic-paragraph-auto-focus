@@ -16,21 +16,7 @@ wp.domReady(() => {
         // Gutenbergの選択を解除
         if (wp.data && wp.data.dispatch) {
             wp.data.dispatch('core/block-editor').clearSelectedBlock();
-        }
-
-        // TinyMCEエディタのフォーカスを解除
-        if (window.tinymce) {
-            const editors = window.tinymce.editors;
-            for (let i = 0; i < editors.length; i++) {
-                if (editors[i].id && editors[i].id.includes('editor-')) {
-                    editors[i].fire('blur');
-                }
-            }
-        }
-
-        // ドキュメント全体のフォーカスを解除
-        if (document.activeElement) {
-            document.activeElement.blur();
+            // console.log("clearSelectedBlock");
         }
     };
 
