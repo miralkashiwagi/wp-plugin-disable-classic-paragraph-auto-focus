@@ -7,7 +7,7 @@
 
 // wp.domReadyで実行
 wp.domReady(() => {
-    // 1. 初期ロード時だけフォーカスを防止するフラグ
+    // 初期ロード時だけフォーカスを防止するフラグ
     let isInitialLoad = true;
 
     // フォーカス防止関数
@@ -20,7 +20,7 @@ wp.domReady(() => {
         }
     };
 
-    // 3. 初期ロード時のGutenbergブロック選択を監視
+    // 初期ロード時のGutenbergブロック選択を監視
     const checkInitialSelection = () => {
         if (!isInitialLoad) return;
 
@@ -33,7 +33,7 @@ wp.domReady(() => {
         }
     };
 
-    // 4. ブロック選択の監視を設定
+    // ブロック選択の監視を設定
     if (wp.data && wp.data.subscribe) {
         wp.data.subscribe(() => {
             if (isInitialLoad) {
@@ -42,10 +42,10 @@ wp.domReady(() => {
         });
     }
 
-    // 5. 初期チェックを実行
+    // 初期チェックを実行
     setTimeout(checkInitialSelection, 0);
 
-    // 6. 一定時間後に初期ロードフラグをオフにする
+    // 一定時間後に初期ロードフラグをオフにする
     setTimeout(() => {
         isInitialLoad = false;
         // console.log('初期ロードフラグをオフ: ユーザー操作によるフォーカスを許可');
